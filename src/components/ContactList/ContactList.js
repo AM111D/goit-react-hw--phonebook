@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts, getFilterValue } from '../store/Contacts/selectors';
-import { deleteContact } from 'components/store/Contacts/operation';
+import { getContacts } from '../store/Contacts/selectors';
+import { selectFilter } from 'components/store/Filter/filterSelectors';
+import { deleteContact, fetchContacts } from '../store/Contacts/operation';
+import operations from 'components/store/Auth/authOperation';
 
 const ContactList = () => {
   const dispatch = useDispatch();
 
   const contacts = useSelector(getContacts);
-
-  const filters = useSelector(getFilterValue);
-  console.log(filters);
+  const filter = useSelector(selectFilter);
+  // useEffect(() => {
+  //   dispatch(operations.fetchContacts());
+  // }, [dispatch]);
+  // console.dir(filter);
 
   const getVisibleContacts = () => {
-    const normalizedFilter = filters.toLowerCase();
+    const normalizedFilter = filter.toLowerCase();
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
     );
@@ -25,14 +29,13 @@ const ContactList = () => {
 
   const visibleContacts = getVisibleContacts();
 
-  console.log(contacts);
   return (
     <ul className={css.contactlist}>
       {visibleContacts.map(contact => {
         return (
           <li className={css.contactElement} key={contact.id}>
             <p>{contact.name}:</p>
-            <p>{contact.phone}</p>
+            <p>{contact.number}</p>
             <button
               className={css.button}
               type="button"
