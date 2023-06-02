@@ -9,14 +9,14 @@ const Filter = () => {
   const dispatch = useDispatch();
 
   const value = useSelector(selectFilter);
-
+  // dispatch(upDate(value));
   return (
     <div className={css.filter}>
       <h3>Find contacts by name:</h3>
       <input
         type="text"
         value={value}
-        onChange={e => dispatch(changeFilter(e.target.value))}
+        onChange={e => dispatch(upDate(e.target.value))}
         className={css.filterInput}
       />
     </div>
