@@ -16,6 +16,10 @@ const ContactList = () => {
   // }, [dispatch]);
   // console.dir(filter);
 
+  // useEffect(() => {
+  //   dispatch(operations.fetchCurrentUser());
+  // }, [dispatch]);
+
   const getVisibleContacts = () => {
     const normalizedFilter = filter.toLowerCase();
     return contacts.filter(contact =>

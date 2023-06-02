@@ -17,6 +17,7 @@ const Filter = () => {
         type="text"
         value={value}
         onChange={e => dispatch(changeFilter(e.target.value))}
+        className={css.filterInput}
       />
     </div>
   );

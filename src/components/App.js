@@ -23,13 +23,13 @@ import operations from './store/Auth/authOperation';
 function App() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   // useEffect(() => {
-  //   dispatch(operations.fetchCurrentUser());
+  //   dispatch(fetchContacts());
   // }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(operations.fetchCurrentUser());
+  }, [dispatch]);
 
   return (
     <Container>

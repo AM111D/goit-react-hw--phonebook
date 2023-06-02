@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navigation from './Navigation/Navigation';
 import AuthNav from './AuthNav';
 import UserMenu from './UserMenu/UserMenu';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import authSelectors from './store/Auth/authSelectors';
+import operations from './store/Auth/authOperation';
 
 function AppBar() {
   const styles = {
@@ -14,6 +15,11 @@ function AppBar() {
       borderBottom: '1px solid #2A363B',
     },
   };
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(operations.fetchCurrentUser());
+  // }, [dispatch]);
 
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   console.log(isLoggedIn);
