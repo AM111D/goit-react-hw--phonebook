@@ -16,8 +16,7 @@ function LoginView() {
   const navigate = useNavigate();
 
   function handleLoginSuccess(token) {
-    console.log(token);
-    navigate('/contacts'); // Исправленное перенаправление
+    navigate('/contacts');
   }
 
   const handleChange = ({ target: { name, value } }) => {
@@ -39,7 +38,7 @@ function LoginView() {
     setEmail('');
     setPassword('');
     setIsLoading(false);
-  }; // Перенаправление при успешном логине
+  };
 
   return (
     <div className={css.logInBlock}>
