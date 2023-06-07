@@ -1,6 +1,6 @@
 import React, { useEffect, lazy, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import Container from './Container/Container';
 import AppBar from './AppBar';
@@ -29,7 +29,7 @@ function App() {
           <Route path="/register" element={<RegisterView />} />
           <Route path="/login" element={<LoginView />} />
           <Route path="/contacts" element={<ContactsView />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          {/* <Route path="*" element={<Navigate to="/" />} /> */}
         </Routes>
       </Suspense>
     </Container>

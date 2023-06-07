@@ -27,6 +27,4 @@ function HomeView() {
   );
 }
 
-console.log(token);
-
 export default HomeView;
