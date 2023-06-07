@@ -1,3 +1,8 @@
+.logInBlock {
+    display: grid;
+    justify-content: center;
+}
+
 .contactForm {
     display: flex;
     flex-direction: column;
@@ -22,6 +27,7 @@
         display: inline-block;
         font-size: 16px;
         border-radius: 4px;
+        margin-top: 20px;
 }
 .contactButton:hover {
     background-color: #58e05d;

@@ -1,28 +1,21 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Navigation from './Navigation/Navigation';
 import AuthNav from './AuthNav';
 import UserMenu from './UserMenu/UserMenu';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import authSelectors from './store/Auth/authSelectors';
-import operations from './store/Auth/authOperation';
 
 function AppBar() {
   const styles = {
     header: {
       display: 'flex',
-      justifyContent: 'space-between',
+      justifyContent: 'space-around',
       alignItems: 'center',
       borderBottom: '1px solid #2A363B',
     },
   };
-  const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(operations.fetchCurrentUser());
-  // }, [dispatch]);
 
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  console.log(isLoggedIn);
 
   return (
     <header style={styles.header}>

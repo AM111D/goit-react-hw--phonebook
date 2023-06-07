@@ -1,25 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from '../store/Contacts/selectors';
 import { selectFilter } from 'components/store/Filter/filterSelectors';
-import { deleteContact, fetchContacts } from '../store/Contacts/operation';
-import operations from 'components/store/Auth/authOperation';
+import { deleteContact } from '../store/Contacts/operation';
 
 const ContactList = () => {
   const dispatch = useDispatch();
 
   const contacts = useSelector(getContacts);
   const filter = useSelector(selectFilter);
-
-  // useEffect(() => {
-  //   dispatch(operations.fetchContacts());
-  // }, [dispatch]);
-  // console.dir(filter);
-
-  // useEffect(() => {
-  //   dispatch(operations.fetchCurrentUser());
-  // }, [dispatch]);
 
   const getVisibleContacts = () => {
     const normalizedFilter = filter.toLowerCase();

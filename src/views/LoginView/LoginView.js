@@ -1,13 +1,24 @@
 import operations from 'components/store/Auth/authOperation';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import css from './LoginView.module.css';
+import { useNavigate } from 'react-router-dom';
+import { getToken } from 'components/store/Auth/authSelectors';
 
 function LoginView() {
   const dispatch = useDispatch();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const token = useSelector(getToken);
+  const navigate = useNavigate();
+
+  function handleLoginSuccess(token) {
+    console.log(token);
+    navigate('/contacts'); // Исправленное перенаправление
+  }
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -20,15 +31,18 @@ function LoginView() {
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    dispatch(operations.logIn({ email, password }));
+    setIsLoading(true);
+    await dispatch(operations.logIn({ email, password }));
+    handleLoginSuccess(token);
     setEmail('');
     setPassword('');
-  };
+    setIsLoading(false);
+  }; // Перенаправление при успешном логине
 
   return (
-    <div>
+    <div className={css.logInBlock}>
       <h1>LogIn</h1>
       <form className={css.contactForm} onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
@@ -56,7 +70,7 @@ function LoginView() {
           required
         />
         <button className={css.contactButton} type="submit">
-          Register
+          {isLoading ? 'Loading...' : 'Enter'}
         </button>
       </form>
     </div>

@@ -22,6 +22,7 @@
         display: inline-block;
         font-size: 16px;
         border-radius: 4px;
+        margin-top: 15px;
 }
 .contactButton:hover {
     background-color: #58e05d;
@@ -31,4 +32,9 @@
 
 h1 {
     color: rgb(37, 57, 239);
+}
+
+.registrationBlock {
+    display: grid;
+    justify-content: center;
 }

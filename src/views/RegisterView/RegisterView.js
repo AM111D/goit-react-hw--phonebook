@@ -1,19 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
 import css from './Register.module.css';
 import operations from 'components/store/Auth/authOperation';
 import { getIsLoading } from 'components/store/Contacts/selectors';
 
 const Register = () => {
-  //     const style = form: {
-  //     width: 320,
-  // },
-  // label: {
-  // display: 'flex',
-  // flexDirection: 'column',
-  // marginBottom: 15px
-  // }
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -40,8 +31,9 @@ const Register = () => {
     setEmail('');
     setPassword('');
   };
+
   return (
-    <div>
+    <div className={css.registrationBlock}>
       <h1>Register page</h1>
 
       <form className={css.contactForm} onSubmit={handleSubmit}>
