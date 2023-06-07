@@ -1,9 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
-// import { Suspense } from 'react';
-// import { styled } from 'react';
-// import styled from 'styled-components';
-
 import css from './Navigation.module.css';
 
 const Navigation = () => {
@@ -13,7 +9,11 @@ const Navigation = () => {
         <nav>
           <ul className={css.headerList}>
             <li className={css.headerListItem}>
-              <NavLink to="/" className={css.headerListItemLink} exact="true">
+              <NavLink
+                to="/home"
+                className={css.headerListItemLink}
+                exact="true"
+              >
                 Home
               </NavLink>
             </li>
