@@ -52,7 +52,6 @@ function LoginView() {
           onChange={handleChange}
           type="email"
           name="email"
-          // pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
           title="Phone email must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
@@ -64,7 +63,6 @@ function LoginView() {
           onChange={handleChange}
           type="password"
           name="password"
-          // pattern="^[a-zA-Z0-9]{6,}$"
           title="Phone password must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
