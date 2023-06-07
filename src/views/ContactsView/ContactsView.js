@@ -11,7 +11,7 @@ function ContactsView() {
   const dispatch = useDispatch();
 
   const token = useSelector(getToken);
-
+  console.log();
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
